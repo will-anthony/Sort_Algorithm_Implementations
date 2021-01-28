@@ -9,9 +9,10 @@ Unstable Sort vs Stable Sort
 Time complexity
 
 -   Bubble sort -------------> 0(n2)
--
+-   Selection sort ----------> 0(n2)
 
 
 Stable/Unstable algorithm
 
 -   Bubble sort -------------> Stable
+-   Selection sort ----------> Unstable
