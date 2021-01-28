@@ -11,7 +11,6 @@ public class SortAlgorithms {
      * This implementation sorts largest numbers to the left
      *
      * */
-
     public int[] bubbleSort(int[] array) {
 
         for (int i = array.length; i > 0; i--) {
@@ -27,6 +26,7 @@ public class SortAlgorithms {
     }
 
 
+
     /*
      * Selection Sort
      *
@@ -38,7 +38,6 @@ public class SortAlgorithms {
      * This implementation sorts largest numbers to the left
      *
      * */
-
     public int[] selectionSort(int[] array) {
         for (int i = array.length; i > 0; i--) {
             int largest = 0;
@@ -54,6 +53,8 @@ public class SortAlgorithms {
         return array;
     }
 
+
+
     /*
      * Insertion sort
      * 0(n2) time complexity
@@ -62,7 +63,6 @@ public class SortAlgorithms {
      * If not the left hand element is shifted right to make way for it.
      *
      */
-
     public int[] insertionSort(int[] array) {
         for (int i = 1; i < array.length; i++) {
             int newElement = array[i];
@@ -74,5 +74,36 @@ public class SortAlgorithms {
             array[j] = newElement;
         }
         return array;
+    }
+
+
+
+    /*
+     * Shell sort
+     * 0(n2) time complexity although usually much faster than insertion sort.
+     * Similar to insertion sort but uses larger gaps when checking 2 elements. The gap closes as the algorithm progresses
+     * until you are left performing a normal insertion sort.
+     * If not the left hand element is shifted right to make way for it.
+     *
+     */
+    public int[] shellSort(int[] array) {
+
+        for (int gap = array.length / 2; gap > 0; gap /= 2) {
+
+            // at this point the algorithm becomes insertion sort
+            for (int i = gap; i < array.length; i++) {
+                int newElement = array[i];
+
+                int j = i;
+
+                while (j >= gap && array[j - gap] > newElement) {
+                    array[j] = array[j - gap];
+                    j -= gap;
+                }
+                array[j] = newElement;
+            }
+        }
+        return array;
+
     }
 }
