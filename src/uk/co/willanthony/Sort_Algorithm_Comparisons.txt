@@ -10,9 +10,11 @@ Time complexity
 
 -   Bubble sort -------------> 0(n2)
 -   Selection sort ----------> 0(n2)
+-   Insertion sort ----------> 0(n2)
 
 
 Stable/Unstable algorithm
 
 -   Bubble sort -------------> Stable
 -   Selection sort ----------> Unstable
+-   Insertion sort ----------> Stable
