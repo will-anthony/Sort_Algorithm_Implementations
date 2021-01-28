@@ -12,6 +12,7 @@ Time complexity
 -   Selection sort ----------> 0(n2)
 -   Insertion sort ----------> 0(n2)
 -   Shell sort --------------> 0(n2)
+-   Merge sort --------------> 0(nlogn)
 
 
 Stable/Unstable algorithm
@@ -20,3 +21,13 @@ Stable/Unstable algorithm
 -   Selection sort ----------> Unstable
 -   Insertion sort ----------> Stable
 -   Shell sort --------------> Unstable
+-   Merge sort --------------> Stable
+
+
+In-place algorithm
+
+-   Bubble sort -------------> In-place
+-   Selection sort ----------> In-place
+-   Insertion sort ----------> In-place
+-   Shell sort --------------> In-place
+-   Merge sort --------------> Not In-place

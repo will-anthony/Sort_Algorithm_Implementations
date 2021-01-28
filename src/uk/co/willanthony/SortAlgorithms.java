@@ -2,7 +2,7 @@ package uk.co.willanthony;
 
 public class SortAlgorithms {
 
-    /*
+    /**
      * Bubble Sort
      *
      * 0(n2) (quadratic) time complexity, one of the slower sort methods.
@@ -27,11 +27,11 @@ public class SortAlgorithms {
 
 
 
-    /*
+    /**
      * Selection Sort
      *
      * 0(n2) time complexity, usually faster than bubble sort though
-     * Selection sort use a sorted and unsorted partition, similar to bubble sort.
+     * Selection sort uses a sorted and unsorted partition, similar to bubble sort.
      * Selection sort keeps track of the current largest numbers index, iterating through all
      * other elements.
      * The final element is swapped with the largest element.
@@ -55,7 +55,7 @@ public class SortAlgorithms {
 
 
 
-    /*
+    /**
      * Insertion sort
      * 0(n2) time complexity
      * Insertion sort also sorts array using a sorted and unsorted partition.
@@ -78,7 +78,7 @@ public class SortAlgorithms {
 
 
 
-    /*
+    /**
      * Shell sort
      * 0(n2) time complexity although usually much faster than insertion sort.
      * Similar to insertion sort but uses larger gaps when checking 2 elements. The gap closes as the algorithm progresses
@@ -104,6 +104,57 @@ public class SortAlgorithms {
             }
         }
         return array;
+    }
 
+
+    /**
+     * Merge sort
+     *
+     * 0(nlogn) time complexity.
+     * The array is split in half, then each half is split in half until there each element is its own array.
+     * Then each piece is then merge with another and sorted, then those pieces are merge and sorted.
+     * The merge phase requires a temp array, therefore it is not ion an in-place algorithm.
+     * It is a stable algorithm.
+     * It use recursion
+     */
+    public int[] mergeSort(int[] array) {
+        int start = 0;
+        int end = array.length;
+
+        separateElements(array, start, end);
+
+        return array;
+    }
+
+    private void separateElements(int[] array, int start, int end) {
+
+        if (end - start < 2) {
+            return;
+        }
+
+        int mid = (start + end) / 2;
+        separateElements(array, start, mid);
+        separateElements(array, mid, end);
+        merge(array, start, mid, end);
+    }
+
+    private static void merge(int[] input, int start, int mid, int end) {
+
+        // if true both sides of the array must already be sorted
+        if(input[mid - 1] <= input[mid]) {
+            return;
+        }
+
+        int i = start;
+        int j = mid;
+        int tempIndex = 0;
+
+        int[] temp = new int[end - start];
+        while(i < mid && j < end) {
+            temp[tempIndex++] = input[i] <= input[j] ? input[i++] : input[j++];
+        }
+
+        System.arraycopy(input, i , input, start + tempIndex, mid - i);
+        System.arraycopy(temp, 0 , input, start, tempIndex);
     }
 }
