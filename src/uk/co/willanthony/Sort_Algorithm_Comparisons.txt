@@ -1,0 +1,17 @@
+Unstable Sort vs Stable Sort
+
+-   A stable sort is an sort algorithm that maintains order of the arrays elements when comparing duplicates
+-   eg    If an array(5,9,3,9,8,4) is sorted(3,4,5,8,9,9) an unstable sort would not care whether both
+          nines have switched order as numerically they are the same
+
+
+
+Time complexity
+
+-   Bubble sort -------------> 0(n2)
+-
+
+
+Stable/Unstable algorithm
+
+-   Bubble sort -------------> Stable
