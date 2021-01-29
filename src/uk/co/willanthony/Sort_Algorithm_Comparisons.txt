@@ -13,6 +13,8 @@ Time complexity
 -   Insertion sort ----------> 0(n2)
 -   Shell sort --------------> 0(n2)
 -   Merge sort --------------> 0(nlogn)
+-   Quick sort --------------> 0(n2) (although technically quadratic, in most cases it is faster than merge sort)
+-   Counting sort -----------> 0(n)  (makes assumptions of data, only can be used in certain conditions)
 
 
 Stable/Unstable algorithm
@@ -22,6 +24,8 @@ Stable/Unstable algorithm
 -   Insertion sort ----------> Stable
 -   Shell sort --------------> Unstable
 -   Merge sort --------------> Stable
+-   Quick sort --------------> Unstable
+-   Counting sort -----------> Unstable
 
 
 In-place algorithm
@@ -31,3 +35,5 @@ In-place algorithm
 -   Insertion sort ----------> In-place
 -   Shell sort --------------> In-place
 -   Merge sort --------------> Not In-place
+-   Quick sort --------------> In-place
+-   Counting Sort -----------> Not In-Place

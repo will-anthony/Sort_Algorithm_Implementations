@@ -107,6 +107,7 @@ public class SortAlgorithms {
     }
 
 
+
     /**
      * Merge sort
      *
@@ -115,7 +116,7 @@ public class SortAlgorithms {
      * Then each piece is then merge with another and sorted, then those pieces are merge and sorted.
      * The merge phase requires a temp array, therefore it is not ion an in-place algorithm.
      * It is a stable algorithm.
-     * It use recursion
+     * It uses recursion
      */
     public int[] mergeSort(int[] array) {
         int start = 0;
@@ -157,4 +158,131 @@ public class SortAlgorithms {
         System.arraycopy(input, i , input, start + tempIndex, mid - i);
         System.arraycopy(temp, 0 , input, start, tempIndex);
     }
+
+
+
+    /**
+     *  Quick Sort
+     *
+     *  0(nlogn) time complexity.
+     *  Uses a pivot element to partition the array into two parts, elements < pivot to its left,
+     *  elements > pivot to its right. Pivot will then be in its correct sorted position.
+     *  Process is then repeated.
+     *  This method uses recursion.
+     *  In-place sorting algorithm.
+     *
+     */
+
+    public int[] quickSort(int[] array) {
+        int start = 0;
+        int end = array.length;
+
+        pivot(array, start, end);
+
+        return array;
+    }
+
+    private void pivot(int[]array, int start, int end) {
+
+        if (end - start < 2) {
+            return;
+        }
+
+        int pivotIndex = partition(array, start, end);
+        pivot(array, start, pivotIndex);
+        pivot(array, pivotIndex + 1, end);
+    }
+
+    private int partition(int[] array, int start, int end) {
+        // using first element as pivot
+        int pivot = array[start];
+        int i = start;
+        int j = end;
+
+        while(i < j) {
+
+            // empty loop used to continue reducing j value and check if i and j cross
+            while(i < j && array[--j] >= pivot);
+            if (i < j) {
+                array[i] = array[j];
+            }
+
+            // empty loop used to continue increasing i value and check if i and j cross
+            while (i < j && array[++i] <= pivot);
+            if(i < j) {
+                array[j] = array[i];
+            }
+        }
+        array[j] = pivot;
+        return j;
+    }
+
+    /**
+     * Counting Sort
+     *
+     * 0(n) time complexity
+     * Can only be used if you make assumptions about data to be sorted
+     * Works best if the range of possible values is roughly the same length as the array
+     * Unstable algorithm and not in-place
+     */
+
+    public int[] countingSort(int[] array, int min, int max) {
+        int[] counter = new int[(max - min) + 1];
+
+        for (int i = 0; i < array.length; i++) {
+            counter[array[i] - min]++;
+        }
+
+        int j = 0;
+        for (int i = min; i <= max; i++) {
+            while (counter[i - min] > 0) {
+                array[j++] = i;
+                counter[i - min]--;
+            }
+        }
+        return array;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

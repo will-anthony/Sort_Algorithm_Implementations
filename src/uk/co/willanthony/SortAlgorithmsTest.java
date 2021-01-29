@@ -39,12 +39,21 @@ class SortAlgorithmsTest {
     @Test
     void shellSort() {
         assertArrayEquals(new int[]{-19,-15,0,4,7,9}, sortAlgorithms.shellSort(new int[]{-15,4,-19,9,7,0}));
-
     }
 
     @Test
     void mergeSort() {
         assertArrayEquals(new int[]{-19,-15,0,4,7,9}, sortAlgorithms.mergeSort(new int[]{-15,4,-19,9,7,0}));
+    }
+
+    @Test
+    void quickSort() {
+        assertArrayEquals(new int[]{-19,-15,0,4,7,9}, sortAlgorithms.quickSort(new int[]{-15,4,-19,9,7,0}));
+    }
+
+    @Test
+    void countingSort() {
+        assertArrayEquals(new int[]{2,6,7,8,8,10}, sortAlgorithms.countingSort(new int[]{10,2,8,6,8,7}, 2, 10));
 
     }
 }
